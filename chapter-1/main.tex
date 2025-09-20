@@ -1,0 +1,426 @@
+\chapter{SCALARS}
+\newtheorem{problem}{Problem}
+\section{Double Addition}
+
+Is it obvious that
+
+\begin{equation}
+    63 + 48 = 27 + 84?
+\end{equation}
+
+It is a true and uninteresting mathematical statement that can be verified in a few seconds - but is it obvious? If calling it obvious means that the reason for its truth is clearly understood, without even a single second's verification, then most people would probably say no.
+
+What about
+
+\begin{equation}
+    (27+30)+48=27+(30+48)
+\end{equation}
+
+- is that obvious? Yes it is, for most people; the instinctive (and correct) reaction is that the way the terms of a sum are bunched together cannot affect the answer. The approved technical term is not "bunch together" but "associative", the instinctive reaction is a readiness to accept what is called the \textbf{associative law} of addition for real numbers. (Surely every reader has noticed by now that the non-obvious statement and the obvious one are in some sense the same:
+
+\begin{equation}
+    63 = 27 + 36 \text{ and } 84 = 36 + 48
+\end{equation})
+
+Linear algebra is concerned with several different kinds of operations (such as addition) on several different kinds of objects (not necessarily real numbers). To prepare the ground for the study of strange operations and to keep the associative law from being unjustly dismissed as a triviality, a little effort to consider some good examples and some bad ones is worthwhile. Some of the examples will be useful in the sequel, and some won't - some are here to show that associativity can fail, and others are here to show that even when it holds it may be far from obvious. In the world of linear algebra non-associative operations are rare, but associative operations whose good behaviour is not obvious are more frequently met.
+
+
+\begin{problem}
+If a new addition for real numbers, denoted by the temporary symbol $\boxed{+}$ is defined by
+
+\begin{equation}
+    \alpha \boxed{+} \beta = 2\alpha + 2\beta
+\end{equation}
+
+is $\boxed{+}$ associative?
+\end{problem}
+
+\textit{Comment.} The plus sign on the right-hand side of the equation denotes ordinary addition.
+
+Note: since ordinary addition is commutative, so that
+
+\begin{equation}
+    2\alpha + 2\beta = 2\beta + 2\alpha
+\end{equation}
+
+it follows that
+
+\begin{equation}
+    \alpha \boxed{+} \beta = \beta \boxed{+} \alpha
+\end{equation}
+
+Conclusion: the new addition is also commutative.
+
+\section{Half double addition}
+
+\begin{problem}
+If a new addition of real numbers, denoted by the temporary symbol $\boxed{+}$, is defined by
+
+\begin{equation}
+    \alpha \boxed{+} \beta = 2\alpha + \beta
+\end{equation}
+
+is $\boxed{+}$ associative?
+\end{problem}
+
+\textit{Comment.} Since $2\alpha + \beta$ is usually different from $2\beta + \alpha$, this $\boxed{+}$ is not commutative.
+
+\textit{Additional comment.} It is notable to comment that this operation is not commutative - after all, the primary goal of this book is to talk about linear algebra, and linear transformation is usually not commutative. Transformations are functions, and thus are not usually commutative.
+
+To the matter at hand, is this operation associative? We examine the results of $(\alpha \boxed{+} \beta) \boxed{+} \gamma$ and $\alpha \boxed{+} (\beta \boxed{+} \gamma)$.
+
+\begin{align}
+    (\alpha \boxed{+} \beta) \boxed{+} \gamma & = (2\alpha + \beta) \boxed{+} \gamma \\
+                                              & = 2(2\alpha + \beta) + \gamma        \\
+    \alpha \boxed{+} (\beta \boxed{+} \gamma) & = \alpha \boxed{+} (2\beta + \gamma) \\
+                                              & = 2\alpha + 2\beta + \gamma
+\end{align}
+
+From here it is easy to see that the operation is not associative. Was there a more elegant way we could have reasoned about the process?
+
+\section{Exponentiation}
+
+\begin{problem}
+If an operation for positive integers, denoted by the temporary symbol $\ast$, is defined by
+
+\begin{equation}
+    \alpha \ast \beta = \alpha^\beta
+\end{equation}
+
+is it commutative? Is it associative?
+\end{problem}
+
+\textit{Additional comment.} The exponentiation operation is not commutative, since $\alpha^\beta$ is usually different from $\beta^\alpha$. It is also not associative, although this fact is not as obvious:
+
+\begin{align}
+    (\alpha \ast \beta) \ast \gamma & = (\alpha^\beta)\ast\gamma   \\
+                                    & = \alpha^{\beta\gamma}       \\
+    \alpha \ast (\beta \ast \gamma) & = \alpha \ast (\beta^\gamma) \\
+                                    & = \alpha^{\beta^\gamma}
+\end{align}
+
+Since usually $\beta\gamma$ is not the same as $\beta^\gamma$, these two expressions are different.
+
+\section{Complex numbers}
+
+Suppose that an operation $\boxed{+}$ is defined for ordered pairs of real numbers, that is for objects that look like $(\alpha, \beta)$ with both $\alpha$ and $\beta$ real, as follows:
+
+\begin{equation}
+    (\alpha, \beta) \boxed{+} (\gamma, \delta) = (\alpha + \beta, \gamma + \delta)
+\end{equation}
+
+Is it commutative? Sure, obviously - how could it miss? All it does is perform the known commutative operation of addition of real numbers twice, once for each of the coordinates. Is it associative? Sure, obviously, for the same reason.
+
+The double addition operation in Problem 1 and 2 are artificial; they were cooked up to make a point. The operation of exponentiation in Problem 3 is natural enough, and that is its point: "natural" operations can fail to be associative. The coordinatewise addition here defined for ordered pairs is a natural one also, but it is far from the only one that is useful.
+
+\begin{problem}
+If an operation for ordered pairs of real numbers, denoted by the temporary symbol $\boxed{\cdot}$, is defined by
+
+\begin{equation}
+    (\alpha, \beta) \boxed{\cdot} (\gamma, \delta) = (\alpha\gamma - \beta\delta, \alpha\delta + \beta\gamma)
+\end{equation}
+
+is it commutative? Is it associative?
+\end{problem}
+
+\textit{Comment.} The reason for the use of the symbol $\boxed{\cdot}$ (instead of $\boxed{+}$) is twofold; it is reminiscent of multiplication (instead of addition), and it avoids confusion when the two operations are discussed simultaneously (as in many contexts they must be).
+
+\textit{Additional comment.} This is, of course, the multiplication operation for complex numbers. If we were to alternatively define a number $i$ such that $i^2 = -1$, then this operation becomes a combination of multiplication and addition of real numbers which we have known to be associative and commutative. This operation, by that reason, is also associative and commutative.
+
+\section{Affine transformation}
+
+Looking strange is not necessarily a sign of being artificial or useless.
+
+\begin{problem}
+If an operation for ordered pairs of real numbers, denoted by $\boxed{\cdot}$ again, is defined by
+
+\begin{equation}
+    (\alpha, \beta) \boxed{\cdot} (\gamma, \delta) = (\alpha\gamma, \alpha\delta + \beta)
+\end{equation}
+
+is it commutative? Is it associative?
+\end{problem}
+
+\textit{Additional comment.} An Affine transformation is a Euclidean transformation that preserves lines and parallelism, but not necessarily angls and distances.
+
+Our intuition from geometry is that transformations are not necessarily commutative (transforming a figure one way and then another may not necessarily result in the same figure had we done it the other way), but may be associative (as long as the same set and relative order of transformations are taking place, it does not matter which one we carry out first). We try to verify this algebraically:
+
+\begin{align}
+    (\gamma, \delta) \boxed{\cdot} (\alpha, \beta) & = (\gamma\alpha, \gamma\beta + \delta)
+\end{align}
+
+As we suspected, the transformation is not commutative.
+
+Verifying associativity is a lot more tedious:
+
+\begin{align}
+    ((\alpha, \beta) \boxed{\cdot} (\gamma, \delta)) \boxed{\cdot} (\epsilon, \zeta)
+     & = (\alpha\gamma, \alpha\delta + \beta) \boxed{\cdot} (\epsilon, \zeta) \\
+     & = (\alpha\gamma\epsilon, \alpha\gamma\zeta + \alpha\delta + \beta)     \\
+    (\alpha,\beta) \boxed{\cdot} ((\gamma,\delta) \boxed{\cdot} (\epsilon, \zeta))
+     & = (\alpha, \beta) \boxed{\cdot} (\gamma\epsilon, \gamma\zeta + \delta) \\
+     & = (\alpha\gamma\epsilon, \alpha(\gamma\zeta + \delta) + \beta)         \\
+     & = (\alpha\gamma\epsilon, \alpha\gamma\zeta + \alpha\delta + \beta)
+\end{align}
+
+But it does show that our intuition was correct.
+
+\section{Matrix multiplication}
+
+The strange multiplication of Problem 5 is a special case of one that is more complicated but less strange.
+
+\begin{problem}
+If an operation for ordered quadruples of real numbers, denoted by $\boxed{\cdot}$, is defined by
+
+\begin{equation}
+    (\alpha, \beta, \gamma, \delta) \boxed{\cdot} (\alpha', \beta', \gamma', \delta') \\
+    = (\alpha\alpha' + \beta\gamma', \alpha\beta' + \beta\delta', \gamma\alpha' + \delta\gamma', \gamma\beta + \delta\delta')
+\end{equation}
+
+is it commutative? Is it associative?
+\end{problem}
+
+\textit{Comment.} How is the multiplication of Problem 5 for ordered pairs of "special case" of this one? Easy: restrict attention to only those quadruples $(\alpha, \beta, \gamma, \delta)$ for which $\gamma = 0$ and $\delta = 1$. The $\boxed{\cdot}$ product of two such special quadruples is again such a special one; indeed if $\gamma = \gamma' = 0$ and $\delta = \delta' = 1$, then $\gamma\alpha' + \delta\gamma' = 0$ and $\gamma\beta' + \delta\delta' = 1$. The first two coordinates of the product are $\alpha\alpha'$ and $\alpha\beta' + \beta$, and that's in harmony with Problem 5.
+
+Another comment may come as an additional pleasant surprise: the multiplication of complex numbers discussed in Problem 4 is also a special case of the quadruple multiplication discussed here. Indeed: restrict attention to only those quadruples that are of the form
+
+\begin{equation}
+    (\alpha, \beta, -\beta, \alpha)
+\end{equation}
+
+and note that
+
+\begin{equation}
+    (\alpha, \beta, -\beta, \alpha) \boxed{\cdot} (\gamma, \delta, -\delta, \gamma)                                      \\
+    = (\alpha\gamma - \beta\delta, \alpha\delta + \beta\gamma, -\beta\gamma - \alpha\delta, -\beta\delta + \alpha\gamma)
+\end{equation}
+
+- in harmony with Problem 4.
+
+
+\section{Modular multiplication}
+
+Define an operation, denoted by $\boxed{\cdot}$, for the numbers $01,2,3,4,5$ as follows: multiply as usual and then throw away multiples of 6. (The technical expression is "multipy modulo 6".) Example: $4 \boxed{\cdot} 5 = 2$ and $2 \boxed{\cdot} 3 = 0$.
+
+\begin{problem}
+is multiplication modulo 6 commutative? Is it associative? What if 6 is replaced by 7: do the conclusions for 6 remain true or do they change?
+\end{problem}
+
+\textit{Additional comment.} This is a well known property of modulo operations, that they are an equivalence relation of normal arithmetic. Operations modulo n are associative and commutative.
+
+\section{Small operations}
+
+Problem 7 shows that interesting operations can exist on small sets. Small sets have the added advantage that sometimes they can forewarn us about some dangers that become more complicated, and therefore harder to see, when the sets get larger. Another reason small sets are good is that operations on them can be defined in a tabular manner that is reassuringly explicit.
+
+Consider, for instance, the table:
+
+\begin{center}
+    \begin{tabular}{l|ccc}
+        $\times$ & 0 & 1 & 2 \\
+        \hline
+        0        & 0 & 0 & 0 \\
+        1        & 0 & 1 & 2 \\
+        2        & 0 & 2 & 1
+    \end{tabular}
+\end{center}
+
+which defines multiplication modulo 3 for the numbers $0,1,2$. The information such tables are intended to communicate is taht the product of the element at the left a \textbf{row} by the element at the top of a \textbf{column}, in that order, is the element placed where that row and that column meet. Example: $2 \times 2 = 1 \mod 3$.
+
+It might be worth remarking that there is also a useful concept of addition modulo 3; it is defined by the table
+
+\begin{center}
+    \begin{tabular}{l|ccc}
+        + & 0 & 1 & 2 \\
+        \hline
+        0 & 0 & 1 & 2 \\
+        1 & 1 & 2 & 0 \\
+        2 & 2 & 0 & 1
+    \end{tabular}
+\end{center}
+
+It's a remarkable fact that addition and multiplication modulo 3 possess all the usually taught properties of the arithmetic operations bearing the same names. They are, for instance, both commutative and associative, they conspire to satisfy the distributive law
+
+\begin{equation}
+    \alpha \times (\beta + \gamma) = (\alpha \times \beta) + (\alpha \times \gamma)
+\end{equation}
+
+they permit unrestricted subtraction (so that, for example, $1 - 2 = 2$), and they permit division restricted only by the exclusion of the denominator 0 (so that, for example, $\frac{1}{2} = 2$). In a word (officially to be introduced and studied later) the integers modulo 3 form a \textbf{field}.
+
+Problem 1 is about an operation that is commutative but not associative. Can that phenomenon occur in small sets?
+
+\begin{problem}
+Is there an operation in a set of three elements that is commutative but not associative?
+\end{problem}
+
+\textit{Additional comment.} There is no standard operation which meets the requirement.
+
+\section{Identity elements}
+
+The commonly accepted attitudes toward the commutative law and the associative law are different. Many real life operations fail to commute; the mathematical community has learned to live with that fact and even to enjoy it. Violations of the associative law, on the other hand, are usually considered by specialists only. Having made the point that the associative law deserves respect, this book will concentrate in the sequel on associative operations only. The next job is to see what other laudable properties such operations can and should possess.
+
+The sum of $0$ and any real number $\alpha$ is $\alpha$ again; the product of $1$ and any real number $\alpha$ is $\alpha$ again. The phenomenon is described by saying that 0 and 1 are \textbf{identity elements} (or zero elements, or unit elements, or neutral elements) for addition and multiplication respectively. An operation that has an identity element is better to work with than one that doesn't. Which ones do?
+
+\begin{problem}
+Which of the operations
+\begin{enumerate}
+    \item double addition,
+    \item half double addition,
+    \item exponentiation,
+    \item complex multiplication,
+    \item multiplication of affine transformations,
+    \item matrix multiplication,
+    \item modular addition and multiplication
+\end{enumerate}
+have an identity element?
+\end{problem}
+
+\textit{Additional comment.}
+
+\begin{enumerate}
+    \item Double addition
+
+          The made-up operation to demonstrate a point does not really have an identity element, as usually $\alpha$ is different from $2\alpha$.
+
+    \item Half double addition
+
+          Same as above.
+
+    \item Exponentiation
+
+          The identity element is 1. $\alpha^1 = \alpha$.
+
+    \item Complex multiplication
+
+          One must be a little more careful for this particular case. Suppose an identity element exist and let it be denoted by $(I_a, I_b)$.
+
+          Then
+
+          \begin{align}
+              (\alpha, \beta) \boxed{\cdot} (I_a, I_b) & = (\alpha I_a - \beta I_b, \alpha I_b + \beta I_a)
+          \end{align}
+
+          Which implies
+
+          \begin{align}
+              \alpha & = \alpha I_a - \beta I_b \\
+              \beta  & = \alpha I_b + \beta I_a
+          \end{align}
+
+          giving us the element $(1,0)$ as the identity.
+
+    \item Multiplication of Affine transformation
+
+          Recall the Affine transformation
+
+          \begin{equation}
+              (\alpha, \beta) \boxed{\cdot} (\gamma, \delta) = (\alpha\gamma, \alpha\delta + \beta)
+          \end{equation}
+
+          It is straightforward to see that $(1,0)$ is once again the identity element.
+
+    \item Matrix multiplication
+
+          The algebraic notation definition above is hard to see, but it is easier if we know that Halmos is trying to make a point with matrix and notate it as such
+
+          \begin{equation}
+              \begin{bmatrix}
+                  \alpha & \beta  \\
+                  \gamma & \delta
+              \end{bmatrix} \boxed{\cdot} \begin{bmatrix}
+                  \alpha' & \beta'  \\
+                  \gamma' & \delta'
+              \end{bmatrix} = \begin{bmatrix}
+                  \alpha \alpha' + \beta \gamma'  & \alpha \beta' + \beta \delta'  \\
+                  \gamma \alpha' + \delta \gamma' & \gamma \beta' + \delta \delta'
+              \end{bmatrix}
+          \end{equation}
+
+          Through algebraic notations we could have also discovered the identity element, $\begin{bmatrix}
+                  1 & 0 \\ 0 & 1
+              \end{bmatrix}$
+
+    \item Modular addition and multiplication
+          As modular addition and multiplication are equivalent to normal arithmetic operations, they also share the same identity elements: the identity for addition is 0, and the identity for multiplication is 1.
+\end{enumerate}
+
+In the discussions of operations, in Problems 1-8, the notation and the language were both additive (+, sum) and multiplicative ($\times$, product). Technically there is no difference between the two, but traditionally multiplication is the more general concept. In the definition of groups, for instance (to be given soon), the notation and the language are usually multiplicative; the additive theory is included as a special case. A curious but firmly established part of the tradition is that multiplication may or may not be commutative, but addition always is. The tradition will be followed in this book, with no exceptions.
+
+An important mini-theorem asserts that an operation can have at most one identity element. That is: if $\times$ is an operation and both $\epsilon$ and $\epsilon'$ are identity elements for it, so that
+
+\begin{equation}
+    \epsilon \times \alpha = \alpha \times \epsilon = \alpha \text{ and } \epsilon' \times \alpha = \alpha \times \epsilon' = \alpha
+\end{equation}
+
+for all $\alpha$, then
+
+\begin{equation}
+    \epsilon = \epsilon'
+\end{equation}
+
+\begin{proof}
+    Use $\epsilon'$ itself for $\alpha$ in the equation involving $\epsilon$, and use $\epsilon$ for $\alpha$ in the equation involving $\epsilon'$. The conclusion is that $\epsilon \times \epsilon'$ is equal to both $\epsilon$ and $\epsilon'$, and hence that $\epsilon$ and $\epsilon'$ are equal to each other.
+\end{proof}
+
+\textit{Comment.} The proof just given is inteded to emphasize that an identity is a two-sided concept: it works from both right and left.
+
+\section{Complex inverses}
+
+Is there a positive integer that can be added to 3 to yield 8? Yes.
+
+Is there a positive integer that can be added to 8 to yield 3? No.
+
+In the well-known language of elementary arithmetic: subtraction within the domain of positive integers is sometimes possible and sometimes not.
+
+Is there a real number that can be added to 5 to yield 0? Yes, namely -5. Every real number has a negative, and that fact guarantees that within the domain of real numbers subtraction is always possible. (To find a number that can be added to 8 to yield 3, first find a number that can be added to 3 to yield 8, and then form its negative.)
+
+The third basic property of operations that will be needed in what follows (in addition to associativity and the existence of neutral elements) is the possibility of inversion. Suppose that $\ast$ is an operation (a temporary impartial symbol whose role in application could be played by either addition or multiplication), and suppose that the domain of $\ast$ contains a neutral element $\epsilon$, so that $\epsilon \ast \alpha = \alpha \ast \epsilon = \alpha$ for all x (\textit{Probably a typo, should be $\alpha$}). Under these circumstances an element $\beta$ is called an \textbf{inverse} of x (\textit{Likewise, should be $\alpha$}) ($\ast$ inverse) if
+
+\begin{equation}
+    \alpha \ast \beta = \beta \ast \alpha = \epsilon
+\end{equation}
+
+Obvious example: every real number $\alpha$ has a + inverse, namely $-\alpha$. Worrisome example: not every real number as a $\times$ inverse. The exception is 0; there is no real number $\beta$ such that $0 \times \beta = 1$. That is the only exception: if $\alpha \neq 0$, then the reciprocal $\alpha^{-1} (= \frac{1}{\alpha})$ is a $\times$ inverse. These examples are typical. The use of additive notation is usually intended to suggest the existence of inverses ( + inverses, negatives) for every element, whereas for multiplicatively written operations some elements can fail to be \textbf{invertible}, that is, can fail to possess inverses ( $\times$ inverses, reciprocals.)
+
+The definition of $\ast$ inverse makes sense in complete generality, but it is useful only in case $\ast$ is associative. The point is that for associative operations an important mini-theorem holds: an element can have at most one inverse. That is: if both $\beta$ and $\gamma$ are $\ast$ inverses of $\alpha$, so that:
+
+\begin{equation}
+    \alpha \ast \beta = \beta \ast \alpha = \alpha \text{ and } \alpha \ast \gamma = \gamma \ast \alpha = \alpha
+\end{equation}
+
+then $\beta = \epsilon$.
+
+\begin{proof}
+    Combine all three $\gamma$, and $\alpha$, and $\beta$, in that order, and use the associative law. Looked at one way the answer is
+
+    \begin{equation}
+        \gamma \ast (\alpha \ast \beta) = \gamma \ast \epsilon = \gamma
+    \end{equation}
+
+    whereas the other way it is
+
+    \begin{equation}
+        (\gamma \ast \alpha) \ast \beta = \epsilon \ast \beta = \beta
+    \end{equation}
+
+    The conclusion is that the triple combination $\gamma \ast \alpha \ast \beta$ is equal to both $\gamma$ and $\beta$, and hence that $\gamma$ and $\beta$ are equal to each other.
+\end{proof}
+
+\begin{problem}
+For complex multiplication (defined in Problem 4), which ordered pairs $(\alpha, \beta)$ are invertible? Is there an explicit formula for the inverses of the ones that are?
+\end{problem}
+
+\textit{Comment.} We have found previously that complex multiplication has an identity element. Suppose that an inverse exists for the ordered pair $(\alpha, \beta)$ and denote it $(\gamma, \delta)$. We then have
+
+\begin{align}
+    (\alpha, \beta) \times (\gamma, \delta) & = (\alpha \gamma - \beta \delta, \alpha \delta + \beta \gamma) = (1,0) \\
+    (\gamma, \delta) \times (\alpha, \beta) & = (\gamma\alpha - \delta \beta, \gamma \beta + \delta \alpha) = (1,0)
+\end{align}
+
+thus
+
+\begin{align}
+    \alpha\gamma & = \beta\delta + 1 \\
+    \alpha\delta & = -\beta\gamma
+\end{align}
+
+Here we note that if either $\alpha$ or $\beta$ is 0, then
