@@ -419,8 +419,218 @@ For complex multiplication (defined in Problem 4), which ordered pairs $(\alpha,
 thus
 
 \begin{align}
-    \alpha\gamma & = \beta\delta + 1 \\
-    \alpha\delta & = -\beta\gamma
+    \alpha\gamma - \beta\delta & =  1            \\
+    \alpha\delta               & = - \beta\gamma
 \end{align}
 
-Here we note that if either $\alpha$ or $\beta$ is 0, then
+We examine the case where $\beta = 0$. Then either $\alpha$ or $\delta = 0$. Suppose $\alpha = 0$, then there exists no $\delta$ that can satisfy the first equation. We then arrive at the same observation above, which is that 0 has no inverse in $\mathbf{R}$, and likewise there is no inverse for (0,0) in $\mathbf{C}$. For the case of $\alpha \neq 0$, this is simply the real set, and thus $\delta = \frac{1}{\alpha}$ satisfies.
+
+We examine the actual interesting case where $\alpha \neq 0$ and $\beta \neq 0$. We can then derive $\delta = \frac{-\beta\gamma}{\alpha}$. Substituting into the first equation, we get
+
+\begin{align}
+    \gamma & = \frac{1}{\alpha^2 + \beta^2}              \\
+    \delta & = \frac{-\beta}{\alpha(\alpha^2 + \beta^2)}
+\end{align}
+
+This is no surprise, as it matches with our understanding of the complex inverse, $\frac{\alpha - \beta i}{\alpha^2 + \beta^2}$.
+
+\section{Affine inverses}
+
+\begin{problem}
+For the multiplication of affine transformations (defined in Problem 5), which ordered pairs $(\alpha, \beta)$ are invertible? Is there an explicit formula for the inverses of the ones that are?
+\end{problem}
+
+\textit{Comment.} We proceed likewise, suppose there exists an inverse element $(\gamma, \delta)$ for any paired variables $(\alpha, \delta)$, satisfying
+
+\begin{equation}
+    (\alpha, \beta) \boxed{\cdot} (\gamma, \delta) = (\alpha\gamma, \alpha\delta + \beta) = (1,0)
+\end{equation}
+
+We note that if $\alpha = 0$, then $\beta = 0$ makes the system consistent, but it results in any number of $\gamma$ and $\delta$, and so infinitely many $\gamma, \delta$ is possible. So there is no inverse for $(0,0)$.
+
+Assuming then $\alpha \neq 0$, we have
+
+\begin{align}
+    \delta & = \frac{-\beta}{\alpha} \\
+    \gamma & = \frac{1}{\alpha}
+\end{align}
+
+Thus the inverse is $(\frac{1}{\alpha}, \frac{-\beta}{\alpha})$.
+
+\section{Matrix inverses}
+
+\begin{problem}
+Which of the $2 \times 2$ matrices
+
+\[
+    \begin{pmatrix}
+        \alpha & \beta  \\
+        \gamma & \delta
+    \end{pmatrix}
+\]
+
+(for which multiplication was defined in Problem 6) are invertible? Is there an explicit formula for the inverses of the ones that are?
+\end{problem}
+
+\textit{Comment.} We likewise proceed by supposing an inverse $\begin{pmatrix}
+        \alpha' & \beta'  \\
+        \gamma' & \delta'
+    \end{pmatrix}$
+
+\begin{equation}
+    \begin{pmatrix}
+        \alpha & \beta  \\
+        \gamma & \delta
+    \end{pmatrix} \times
+    \begin{pmatrix}
+        \alpha' & \beta'  \\
+        \gamma' & \delta'
+    \end{pmatrix} =
+    \begin{pmatrix}
+        \alpha\alpha' + \beta\gamma'  & \alpha\beta' + \beta\delta'  \\
+        \gamma\alpha' + \delta\gamma' & \gamma\beta' + \delta\delta'
+    \end{pmatrix} =
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}
+\end{equation}
+
+so
+
+\begin{align}
+    \alpha\beta' + \beta\delta'   & = 0 \\
+    \gamma\alpha' + \delta\gamma' & = 0
+\end{align}
+
+From the second equation we have $\gamma' = \frac{-\gamma\alpha'}{\delta}$, from which we get
+
+\begin{align}
+    \alpha\alpha' + \beta\gamma'                        & = \alpha\alpha' + \beta (\frac{-\gamma\alpha'}{\delta}) \\
+    \alpha' (\frac{\alpha\delta - \beta\gamma}{\delta}) & = 1                                                     \\
+    \alpha'                                             & = \frac{\delta}{\alpha\delta - \beta\gamma}             \\
+    \gamma'                                             & = \frac{-\gamma}{\alpha\delta - \beta\gamma}
+\end{align}
+
+We proceed likewise for $\delta' = \frac{-\alpha\beta'}{\beta}$, from which we get
+
+\begin{align}
+    \gamma\beta' + \delta\delta'                      & = \gamma\beta' + \delta (\frac{-\alpha\beta'}{\beta}) \\
+    \beta' (\frac{\beta\gamma - \delta\alpha}{\beta}) & = 1                                                   \\
+    \beta'                                            & = \frac{\beta}{\beta\gamma - \delta\alpha}            \\
+    \delta'                                           & = \frac{-\alpha}{\beta\gamma - \delta\alpha}
+\end{align}
+
+This establishes the formula we are looking for. We also note the appearance of the \textbf{determinant}, $\alpha\delta - \beta\gamma$.
+
+\section{Abelian groups}
+
+Numbers can be added, subtracted, multiplied, and (with one infamous exception) divided. Linear algebra is about concepts called scalars and vectors. Scalars are usually numbers; to understand linear algebra it is necessary first of all to understand numbers, and, in particular, it is necessary to understand what it means to add and subtract them. The general concept that lies at the heart of such an understanding is that of \textbf{abelian group}.
+
+Consider, as an example, the set $\mathbb{Z}$ of all integers (positive, negative, or zero) together with the operation of addition. The sum of two integers is an integer such that
+
+\quad addition is \textbf{commutative}, meaning that the sum of two integers is independent of the order in which they are added,
+
+\begin{equation}
+    x + y = y + x;
+\end{equation}
+
+\quad addition is \textbf{associative}, meaning that the sum of three integers, presented in a fixed order, is independent of the order in which the two additions between them are performed,
+
+\begin{equation}
+    (x + y) + z = x + (y + z);
+\end{equation}
+
+\quad the integer \textbf{0} plays a special role in that it does not change any integer that it is added to,
+
+\begin{equation}
+    x + 0 = 0 + x = x;
+\end{equation}
+
+\quad and every addition can be "undone" by another one, namely the addition of the \textbf{negative} of what was just added,
+
+\begin{equation}
+    x + (-x) = (-x) + x = 0
+\end{equation}
+
+This example is typical. The statements just made about $\mathbb{Z}$ and + are in effect the definition of the concept of abelian group. Almost exactly the same statements can be made about every abelian group; the only differences are terminological (the words "integer" and "addition" may be replaced by others) and notational (the symbols 0 and + may be replaced by others).
+
+Another example is the set $\mathbb{Z}_{12}$ consisting of the integers between 0 and 11 inclusive, with an operation of addition (temporarily denoted by $\ast$) defined this way: if the sum of two elements of $\mathbb{Z}_{12}$ (in the ordinary meaning of sum) is less than 12, then the new sum is equal to that ordinary sum.
+
+\begin{equation}
+    x \ast y = x + y
+\end{equation}
+
+but if their ordinary sum is 12 or more, then the new sum is the ordinary with 12 subtracted,
+
+\begin{equation}
+    x \ast y = x + y = 12.
+\end{equation}
+
+The operation $\ast$ is called addition \textbf{modulo 12}, and is usually denoted by just plain +, or, if desired, by + followed soon by an explanatory "modulo 12". The verification that the four typical sentences stated above for $\mathbb{Z}$ are true for $\mathbb{Z}_{12}$ is a small nuisance, but it is painless and leads to no surprises. (The closest it comes to a surprise is that the role of the negative of $x$ is played by $12-x$.)
+
+Here is another example of an abelian group: the set $\mathbb{R}$, of \textbf{positive} real numbers, with an operation, temporarily denoted by $\ast$, defined as ordinary numerical \textbf{multiplication}:
+
+\begin{equation}
+    x \ast y = xy.
+\end{equation}
+
+Everybody believes commutativity and associativity; the role of zero is played this time by the real number 1,
+
+\begin{equation}
+    x \ast 1 = 1 \ast x = x,
+\end{equation}
+
+and the role of the negative of $x$ is played by the reciprocal of $x$
+
+\begin{equation}
+    x \ast \frac{1}{x} = \frac{1}{x} \ast x = 1
+\end{equation}
+
+The general definition of an abeligan group should be obvious by now: it is a set $\mathbb{G}$ with an operation of "addition" defined in it (so that whenever $x$ and $y$ are in $\mathbb{G}$, then $x+y$ is again an element of $\mathbb{G}$), satisfying the four conditions discussed above. (They are: commutativity; the existence of a \textit{zero}; and, corresponding to each element, the existence of a negative of that element.)
+
+The word "abelian" means exactly the same as "commutative". If an operation in a set satisfies the last three conditions but not necessarily the first, then it is called a \textbf{group}. Non-commutative groups also enter the study of linear algebra, but not till later, and not as basically as the commutative ones.
+
+\begin{problem}
+(a) If a new operation $\ast$ is defined in the set $\mathbb{R}_+$ of positive real numbers by
+
+\begin{equation}
+    x \ast y = \min (x,y)
+\end{equation}
+
+does $\mathbb{R}_+$ become an abelian group?
+
+(b) If an operation $\ast$ is defined in the set $\{1,2,3,4,5\}$ of positive integers by
+
+\begin{equation}
+    x \ast y = \max(x,y)
+\end{equation}
+
+does that set become an abelian group?
+
+(c) If $x$ and $y$ are elements of an abelian group such that $x+y = y$, does it follow that $x=0$?
+\end{problem}
+
+\begin{minipage}{300px}
+    \textit{Working.} (a) For a set of three numbers $(x,y,z)$, there will always exist one smallest number, which will be the result of the $x \ast y \ast z$ operations.
+
+    The operation is also associative
+
+    \begin{equation}
+        x \ast y = \min (x,y) = \min(y,x) = y \ast x
+    \end{equation}
+
+    It does not however have an identity element, since this would need to be a number which is larger than every other number. And likewise it does not have an inverse element, at least one that can be obtained by a function: for a given number $y$, there are infinitely many elements $x$ such that $min(x,y) = y$. Hence the $min$ operation does not form an abelian group.
+
+    (b) This is likewise an operation that is commutative and associative, but there does not exist an identity element and an inverse element. So this does not form an abelian group.
+
+    (c) As the set is an abelian group, there must exist an element $-y$ that is the inverse of $y$. Consider the operation
+
+    \begin{align}
+        (x + y) + (-y) & = y + (-y) = 0 \\
+        x + (y + (-y)) & = x + 0 = 0
+    \end{align}
+
+    By the associative property of abelian group, $x = 0$.
+\end{minipage}
+
