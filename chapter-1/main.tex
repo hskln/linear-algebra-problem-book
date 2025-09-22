@@ -1,4 +1,9 @@
 \chapter{SCALARS}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
 \newtheorem{problem}{Problem}
 \section{Double Addition}
 
@@ -527,7 +532,7 @@ This establishes the formula we are looking for. We also note the appearance of 
 
 Numbers can be added, subtracted, multiplied, and (with one infamous exception) divided. Linear algebra is about concepts called scalars and vectors. Scalars are usually numbers; to understand linear algebra it is necessary first of all to understand numbers, and, in particular, it is necessary to understand what it means to add and subtract them. The general concept that lies at the heart of such an understanding is that of \textbf{abelian group}.
 
-Consider, as an example, the set $\mathbb{Z}$ of all integers (positive, negative, or zero) together with the operation of addition. The sum of two integers is an integer such that
+Consider, as an example, the set $\Z$ of all integers (positive, negative, or zero) together with the operation of addition. The sum of two integers is an integer such that
 
 \quad addition is \textbf{commutative}, meaning that the sum of two integers is independent of the order in which they are added,
 
@@ -553,9 +558,9 @@ Consider, as an example, the set $\mathbb{Z}$ of all integers (positive, negativ
     x + (-x) = (-x) + x = 0
 \end{equation}
 
-This example is typical. The statements just made about $\mathbb{Z}$ and + are in effect the definition of the concept of abelian group. Almost exactly the same statements can be made about every abelian group; the only differences are terminological (the words "integer" and "addition" may be replaced by others) and notational (the symbols 0 and + may be replaced by others).
+This example is typical. The statements just made about $\Z$ and + are in effect the definition of the concept of abelian group. Almost exactly the same statements can be made about every abelian group; the only differences are terminological (the words "integer" and "addition" may be replaced by others) and notational (the symbols 0 and + may be replaced by others).
 
-Another example is the set $\mathbb{Z}_{12}$ consisting of the integers between 0 and 11 inclusive, with an operation of addition (temporarily denoted by $\ast$) defined this way: if the sum of two elements of $\mathbb{Z}_{12}$ (in the ordinary meaning of sum) is less than 12, then the new sum is equal to that ordinary sum.
+Another example is the set $\Z_{12}$ consisting of the integers between 0 and 11 inclusive, with an operation of addition (temporarily denoted by $\ast$) defined this way: if the sum of two elements of $\Z_{12}$ (in the ordinary meaning of sum) is less than 12, then the new sum is equal to that ordinary sum.
 
 \begin{equation}
     x \ast y = x + y
@@ -567,9 +572,9 @@ but if their ordinary sum is 12 or more, then the new sum is the ordinary with 1
     x \ast y = x + y = 12.
 \end{equation}
 
-The operation $\ast$ is called addition \textbf{modulo 12}, and is usually denoted by just plain +, or, if desired, by + followed soon by an explanatory "modulo 12". The verification that the four typical sentences stated above for $\mathbb{Z}$ are true for $\mathbb{Z}_{12}$ is a small nuisance, but it is painless and leads to no surprises. (The closest it comes to a surprise is that the role of the negative of $x$ is played by $12-x$.)
+The operation $\ast$ is called addition \textbf{modulo 12}, and is usually denoted by just plain +, or, if desired, by + followed soon by an explanatory "modulo 12". The verification that the four typical sentences stated above for $\Z$ are true for $\Z_{12}$ is a small nuisance, but it is painless and leads to no surprises. (The closest it comes to a surprise is that the role of the negative of $x$ is played by $12-x$.)
 
-Here is another example of an abelian group: the set $\mathbb{R}$, of \textbf{positive} real numbers, with an operation, temporarily denoted by $\ast$, defined as ordinary numerical \textbf{multiplication}:
+Here is another example of an abelian group: the set $\R$, of \textbf{positive} real numbers, with an operation, temporarily denoted by $\ast$, defined as ordinary numerical \textbf{multiplication}:
 
 \begin{equation}
     x \ast y = xy.
@@ -592,13 +597,13 @@ The general definition of an abeligan group should be obvious by now: it is a se
 The word "abelian" means exactly the same as "commutative". If an operation in a set satisfies the last three conditions but not necessarily the first, then it is called a \textbf{group}. Non-commutative groups also enter the study of linear algebra, but not till later, and not as basically as the commutative ones.
 
 \begin{problem}
-(a) If a new operation $\ast$ is defined in the set $\mathbb{R}_+$ of positive real numbers by
+(a) If a new operation $\ast$ is defined in the set $\R_+$ of positive real numbers by
 
 \begin{equation}
     x \ast y = \min (x,y)
 \end{equation}
 
-does $\mathbb{R}_+$ become an abelian group?
+does $\R_+$ become an abelian group?
 
 (b) If an operation $\ast$ is defined in the set $\{1,2,3,4,5\}$ of positive integers by
 
@@ -634,3 +639,41 @@ does that set become an abelian group?
     By the associative property of abelian group, $x = 0$.
 \end{minipage}
 
+\textit{Comment.} The abbreviation "min" and "max" are for minimum and maximum; $min(2,3) = 2$, $max(-2,-3) = -2$, and $min(5,5) = 5$.
+
+Parts (a) and (b) of the problem test the understanding of the definition of abelian group. The beginning of a systematic development of group theory (abelian or not) is usually a sequence of axiom splitting delicacies, which are fussy but can be fun. A sample is the mini-theorem discussed in Problem 9, the one that says that there can never be more than one element that acts the way $0$ does. Part (c) of this problem is another sample of the same kind of thing. It is easy, but it's here because it's useful and, incidentally, because it shows how the defining axioms of groups can be useful. What was proved in Problem 9 is that if an element acts the way $0$ does for \textit{every} element, then it must be 0; part (c) here asks about elements that act the way 0 does for only \text{one} element.
+
+\section{Groups}
+
+According to the definition in Problem 13 a set endowed with an operation that has all the defining properties of an abelian group except possibly the first, namely commutativity, is called just simply a \textbf{group}. (Recall that the word "abelian" is a synonym for "commutative".) Emphasis: the operation is an essential part of the definition; if two different operations on the same set both satisfy the defining conditions, the results are regarded as two different groups.
+
+Probably the most familiar example of an abelian group is the set $\Z$ of all integers (positive, negative, and zero), or, better said, the group is the pair $\{\Z, + \}$, the set $\Z$ together with, endowed with, the operation of addition. It is sometimes possible to throw away some of the integers and still have a group left; thus, for instance, the set of all even integers is a group. Throwing things away can, however, be dangerous; the set of positive integers is not an additive group (there is no identity element: 0 is missing), and neither is the set of non-negative integers (once 0 is put back in it makes sense to demand inverses, but the demand can be fulfilled only by putting all the negaitve integers back in too).
+
+The set of real numbers with addition, in symbols $\{\R, +\}$, is a group, but $\{\R, \times\}$ is not - the number 0 has no inverse. The set of non-zero real numbers on the other hand, is a multiplicative group. The same comments apply to the set $\C$ of complex numbers. The set of positive real numbers is a group with respect to multiplication, but the set of negative real numbers is not - the product of two of them is not negative.
+
+Group theory is deep and pervasive - no part of mathematics is free of its influence. At the beginning of linear algebra not much of it is needed, but even here it is a big help to be able to recognize a group when one enters the room.
+
+\begin{problem}
+Is the set of all affine transformation $\xi \mapsto \alpha\xi + \beta$ (with the operation of functional composition) a group? What about the set of all $2 \times 2$ matrices
+
+\[
+  \begin{pmatrix}
+    \alpha & \beta  \\
+    \gamma & \delta
+  \end{pmatrix}
+\]
+
+(with matrix multiplication)? Is the set of non-zero integers modulo 6 (that is: the set of numbers $1,2,3,4,5$) a group with respect to multiplication modulo 6? What if 6 is replaced by 7; does the conclusion remain true or does it change?
+\end{problem}
+
+\textit{Comment.} The symbol $\mapsto$, called the \textbf{barred arrow}, is commonly used for functions; it serves the purpose of indicating the "variable" that a function depends on. To speak of the function "the function $2x+3$" is bad form; what the expression $2x+3$ denotes is not a function but the value of a function at the number $x$. Correct language speaks of the function
+
+\begin{equation}
+  x \mapsto 2x + 3
+\end{equation}
+
+which is an abbreviation for "the function whose value at each $x$ is $2x+3$".
+
+\begin{minipage}{300px}
+  \textit{Working.}
+\end{minipage}
