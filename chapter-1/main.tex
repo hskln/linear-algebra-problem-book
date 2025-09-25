@@ -1,9 +1,5 @@
 \chapter{SCALARS}
 
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-
 \newtheorem{problem}{Problem}
 \section{Double Addition}
 
@@ -657,10 +653,10 @@ Group theory is deep and pervasive - no part of mathematics is free of its influ
 Is the set of all affine transformation $\xi \mapsto \alpha\xi + \beta$ (with the operation of functional composition) a group? What about the set of all $2 \times 2$ matrices
 
 \[
-  \begin{pmatrix}
-    \alpha & \beta  \\
-    \gamma & \delta
-  \end{pmatrix}
+    \begin{pmatrix}
+        \alpha & \beta  \\
+        \gamma & \delta
+    \end{pmatrix}
 \]
 
 (with matrix multiplication)? Is the set of non-zero integers modulo 6 (that is: the set of numbers $1,2,3,4,5$) a group with respect to multiplication modulo 6? What if 6 is replaced by 7; does the conclusion remain true or does it change?
@@ -669,11 +665,98 @@ Is the set of all affine transformation $\xi \mapsto \alpha\xi + \beta$ (with th
 \textit{Comment.} The symbol $\mapsto$, called the \textbf{barred arrow}, is commonly used for functions; it serves the purpose of indicating the "variable" that a function depends on. To speak of the function "the function $2x+3$" is bad form; what the expression $2x+3$ denotes is not a function but the value of a function at the number $x$. Correct language speaks of the function
 
 \begin{equation}
-  x \mapsto 2x + 3
+    x \mapsto 2x + 3
 \end{equation}
 
 which is an abbreviation for "the function whose value at each $x$ is $2x+3$".
 
-\begin{minipage}{300px}
-  \textit{Working.}
-\end{minipage}
+\textit{Working.}
+
+Affine transformation with the operation of functional composition may not form a group if the affine transformation has no inverse.
+
+Let $f$ denote $x \mapsto \alpha x + \beta$ and $g$ denote $x \mapsto \gamma x + \delta$. The composition of $f g$ is also a function.
+
+\begin{align}
+    \alpha x + \beta & \mapsto \gamma (\alpha x + \beta) + \delta     \\
+                     & \equiv \alpha \gamma x + \gamma \beta + \delta
+\end{align}
+
+We have proven before that affine transformations are associative (though not commutative). We have also proven that there is an identity element in affine transformation, $(1,0)$. Lastly, the existence of an inverse may not be guaranteed, which is the case of $(\alpha, \beta) = (0, \beta)$, where the transformation "squished" the vector and so there is no inverse element.
+
+This is likewise the case for matrix multiplication. The $2\times2$ case has been proven above to be associative (but not commutative), to have an identity element, but not always have an inverse element.
+
+The situation with the set of modulo 6 is more interesting. The table below lets us examine all the possibility
+
+\begin{center}
+    \begin{tabular}{l|ccccc}
+        $\times$ & 1 & 2 & 3 & 4 & 5 \\
+        \hline
+        1        & 1 & 2 & 3 & 4 & 5 \\
+        2        & 2 & 4 & 0 & 2 & 4
+    \end{tabular}
+\end{center}
+
+The element 0 is not part of the set $\{1,2,3,4,5\}$, so this set is not closed under multiplication. This situation will not happen for modulo 7 as no two elements will multiply up to 7; we can establish the table to see it visually.
+
+\begin{center}
+    \begin{tabular}{l|cccccc}
+        $\times$ & 1 & 2 & 3 & 4 & 5 & 6 \\
+        \hline
+        1        & 1 & 2 & 3 & 4 & 5 & 6 \\
+        2        &   & 4 & 6 & 1 & 3 & 5 \\
+        3        &   &   & 2 & 5 & 1 & 4 \\
+        4        &   &   &   & 2 & 6 & 3 \\
+        5        &   &   &   &   & 4 & 2 \\
+        6        &   &   &   &   &   & 1
+    \end{tabular}
+\end{center}
+
+The set is closed under multiplication. It is also associative (and commutative in this case). There exists an identity element, namely 1. Lastly, the existence of an inverse element. From the table we can see that each element maps to a full set of $\{1,2,3,4,5,6\}$, so there always exists an inverse element. On a more number theoretical take, this is called the modulo inverse, and it exists when the coefficient and the modulo exponent are coprime. So while the set of modulo 6 does not always have an inverse element, the set of modulo 7 always does, and so the modulo set of 7 is a group while the modulo 6 is not.
+
+\section{Independent group axioms}
+
+A group is a set with an operation that has three good properties, namely associativity, the existence of an identity element, and the existence of inverses. Are those properties totally independent of one another, or is it the case that some of them imply some of the others? So, for example, must an associative operation always have an identity element? The answer is no, and that negative answer is one of the first things that most children learn about arithmetic. We all learn early in life that we can add two positive integers and get a third one, and we quickly recognize that that third one is definitely different from both of the numbers that we started with - the discovery of zero came to humanity long after the discovery of addition, and it comes similarly late to each one of us. Very well then, if we have an associative operation that does possess an identity element, does it follow that every element has an inverse? The negative answer to that question reaches most of us not long after our first arithmetic disappointment (see Problem 13): in the set $\{0,1,2,3,...\}$ we can add just fine, and $0$ is an identity element for addition, but $+$ inverses are hard to come by - subtraction cannot always be done. After these superficial comments there is really only one sensible question left to ask.
+
+\begin{problem}
+Can there exist a non-associative operation with an identity element, such that every element has an inverse?
+\end{problem}
+
+\textit{Working.} Yes, and the "natural" answer is the exponentiation operation on $\R_+$. The operation is non-associative ($\alpha^{\beta^\gamma}$ is not the same as $\alpha^{\beta\gamma}$); there is an identity element, 1. The proof that an inverse element exists however is more difficult, but the operation is well defined for $\frac{1}{\beta}$.
+
+\begin{equation}
+    \alpha \exp \beta \exp \frac{1}{\beta} = \alpha
+\end{equation}
+
+\section{Fields}
+
+If, temporarily, "number" is interpreted to mean "integer", then numbers can be added and subtracted and multiplied, but, except accidentally as it were, they cannot be divided. If we insist on dividing them anyway, we leave the domain of integers and get the set $\Q$ of all quotients of integers - in other words the set $\Q$ of rational numbers, which is a "field".
+
+(Does anyone know about rational numbers? A real number is called \textbf{rational} if it is the ratio of two integers. In other words, $x$ is rational just in case there exists integers $m$ and $n$ such that $x = \frac{m}{n}$. Examples: $\frac{2}{3}$, $-\frac{2}{3}$, 0,1,10, -10, $5^5$. Note: $\frac{4}{6}$ and $\frac{-12}{-18}$ are additional representations of the rational number $\frac{2}{3}$ already mentioned; there are many others. Celebrated counterexamples: $\sqrt{2}$ and $\pi$. A proof that $\sqrt{2}$ is not rational was known to humanity well over 2000 years ago; the news about $\pi$ is only a little more than 200 years old. That $(\Q, +)$ is a group needs to be checked, of course, but the check is easy, and the same is true for $(\Q - \{0\}, \times)$.)
+
+Probably the best known example of a field is the $\R$ of real numbers endowed with the operations of addition and multiplication. As far as addition goes, $\R$ is an abelian group, and so is $\Q$. The corresponding statement for multiplication is not true; zero causes trouble. Since $0x = 0$ for every real number $x$, it follows that there is no $x$ such that $0x = 1$; the number 0 does not have a multiplicative inverse. If, however, $\R$ is replaced by the set $\R^\ast$ of real numbers different from 0 (and similarly $\Q$ is replaced by the set $\Q^\ast$ of rational numbers different from 0), then everything is all right again: $\R^\ast$ with multiplication is an abelian group, and so is $\Q^\ast$.
+
+It surely does not come as a surprise that the same statements are true about the set $\C$ of all complex numbers with addition and multiplication, and, indeed, $\C$ is another example of a field. The properties of $\Q$ and $\R$ and $\C$ that have been mentioned so far, are, however, not quite enough to guess the definition of a field from. What the examples suggest is that a field has two operations; what they leave out is a connection between them. It is mathematical malpractice to endow a set with two different structures that have nothing to do with each other. In the examples already mentioned addition and multiplication together form a pleasant and useful conspiracy (in fact two conspiracies), call the \textbf{distributive law} (or laws):
+
+\begin{equation}
+    \alpha(x+y) = \alpha x + \alpha y \text{ and } (\alpha + \beta) x = \alpha x + \beta x
+\end{equation}
+
+and once that is observed the correct definition of fields become guessable. A \textbf{field} is a set $\F$ with two operations $+$ and $\times$ such that with $+$ the entire set $\F$ is an abelian group, with $\times$ the diminished set $\F^\ast$ (omit 0) is an abelian group, and such that the distributive laws are true.
+
+(Is it clear what "0" means here? It is intended to mean the identity element of the additive group $\F$. The notational conventions for real numbers are accepted for all fields: 0 is always the additive neutral element, 1 is the multiplicative one, and, except at rare times of emphasis, multiplication is indicated simply by juxtaposition.)
+
+Some examples of fields, les obvious than $\R$, $\Q$, and $\C$, deserve mention. One good example is called $\Q(\sqrt{2})$; it consists of all numbers of the form $\alpha + \beta \sqrt{2}$ where $\alpha$ and $\beta$ are rational; the operations are the usual addition and multiplication of real numbers. All parts of the definition, except perhaps one, are obvious. What may not be obvious is that every non-zero element of $\Q(\sqrt{2})$ has a reciprocal. The proof that it is true anyway, obvious or no, is the process of rationalizing the denominator (used before in Solution 10). That is: to determine $\frac{1}{\alpha + \beta \sqrt{2}}$, multiply both numerator and denominator by $\alpha - \beta \sqrt{2}$ and get
+
+\begin{equation}
+    \frac{\alpha-\beta \sqrt{2}}{\alpha^2 - 2\beta^2} = \frac{\alpha}{\alpha^2 - 2\beta^2} - \frac{\beta}{\alpha^2 - 2\beta^2}\sqrt{2}
+\end{equation}
+
+The only thing could possibly go wrong with this procedure is that the denominator $\alpha^2 - 2\beta^2$ is zero, and that cannot happen (unless both $\alpha$ and $\beta$ are zero to begin with) - the reason it cannot happen is $\sqrt{2}$ is not rational.
+
+Could it happen in a field that the additive identity element is equal to the multiplicative one, that is that $0 = 1$? That is surely not the intention of the definition. A legalistic loophole that avoids such degeneracy is to recall that a group is never the empty set (because, by assumption, it contains an identity element). It follwos that if $\F$ is a field, then $\F - \{0\}$ is not empty. That does it. 1 is an element of $\F - \{0\}$, and therefore $1 \neq 0$.
+
+If $\F$ is a field, then both $\F$ with $+$ and $\F^\ast$ with $\times$ are abelian groups, but neither of these facts has anything to do with the \textit{multiplicative} properties of the \textit{additive} inverse 0. As far as they are concerned, do fields behave the way $\Q$, $\R$, and $\C$ do, or does the generality permit some unusual behavior?
+
+\begin{problem}
+Must multiplication in a field be commutative?
+\end{problem}
