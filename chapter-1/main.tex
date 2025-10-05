@@ -760,3 +760,147 @@ If $\F$ is a field, then both $\F$ with $+$ and $\F^\ast$ with $\times$ are abel
 \begin{problem}
 Must multiplication in a field be commutative?
 \end{problem}
+
+\textit{Working.} We can intuitively see that in order to satisfy both of the distributive laws, it is necessary that multiplication be commutative in a field. However, it would be interesting to examine what would happen if it isn't.
+
+Question, if $\F$ is an abelian group with $+$, and if $\F^*$ is an abelian group with $\times$, and if the distributive law
+
+\begin{equation}
+    \alpha (x + y) = \alpha x + \alpha y
+\end{equation}
+
+is true for all $\alpha$, $x$ and $y$, does it follow that multiplication in $\F$ is commutative? (Side question, does assuming that $\F^*$ is an abelian group not already imply that $\times$ is ommutative?).
+
+% TODO
+
+\section{Addition and multiplication in fields}
+
+If a question about the behavior of the elements of a field concerns only one of the two operations, it is likely to be easy and uninteresting. Example: is it true that if
+
+\begin{equation}
+    \alpha + \gamma = \beta + \gamma
+\end{equation},
+
+then $\alpha = \beta$ (additive cancellation law)? Answer: yes - just add $-\gamma$ to both sides. A pleasant consequence (that sometimes bothers mathematical beginners): since
+
+\begin{equation}
+    \alpha + (-\alpha) = 0
+\end{equation}
+
+and
+
+\begin{equation}
+    (-\alpha) + (-(-\alpha)) = 0
+\end{equation}
+
+the commutativity of addition and the additive cancellation law imply that
+
+\begin{equation}
+    -(-\alpha) = \alpha
+\end{equation}
+
+The tricky and useful questins about fields concerns addition and multiplication simultaneously.
+
+\begin{problem}
+Suppose that $\F$ is a field and $\alpha$ and $\beta$ are in $\F$. Which of the following plausible relations are necessarily true?
+
+\begin{enumerate}
+    \item $0\times\alpha = 0$
+    \item $(-1)\alpha = -\alpha$
+    \item $(-\alpha)(-\beta) = \alpha\beta$
+    \item $1+1 \neq 0$
+    \item If $\alpha \neq 0$ and $\beta \neq 0$, then $\alpha\beta \neq 0$
+\end{enumerate}
+\end{problem}
+
+\textit{Working.}
+
+1. This follow straightforwardly from the base axioms of groups
+
+\begin{align}
+    0 + 0             & = 0 \text{ (Identity element of +)}           \\
+    (0 + 0) \alpha    & = 0\alpha                                     \\
+    0\alpha + 0\alpha & = 0\alpha \text{ (Distributive law)}          \\
+    0\alpha           & = 0 \text{ (Adding $-0\alpha$ to both sides)}
+\end{align}
+
+2.
+
+\begin{align}
+    1 + (-1)                         & = 0                                  \\
+    (1 + (-1)) \alpha                & = 0 \alpha = 0 \text{ (proven in 1)} \\
+    1\alpha + (-1)\alpha             & = 0                                  \\
+    \alpha + (-1) \alpha + (-\alpha) & = 0 + (-\alpha)                      \\
+    (-1) \alpha                      & = -\alpha
+\end{align}
+
+3. Given the two proven statements above, it becomes much easier to prove this statement
+
+\begin{align}
+    (-\alpha)(-\beta) & = (-1)\alpha(-1)\beta     \\
+                      & = ((-1)(-1))(\alpha\beta) \\
+                      & = 1\alpha\beta            \\
+                      & = \alpha\beta
+\end{align}
+
+We must use the commutative property of multiplication here, which requires a nuanced discussion about why it is necessary above.
+
+4. One must be necessarily careful here - as the meaning of 1 and 0 are not the typical integer real numbers; they refer to the multiplicative identity and the additive identity. Here, a counter example can be found: the set of numbers modulo 2. 1 is still the multiplicative neutral element, 0 the additive neutral element, but $1 + 1 = 0 \mod 2$.
+
+5. If $\alpha \neq 0$, then there exists a multiplicative inverse of $\alpha$ (because $\F$ is a field), and hence
+
+\begin{align}
+    \alpha \beta               & = 0              \\
+    (\alpha^{-1}) \alpha \beta & = (\alpha^{-1})0 \\
+    1 \beta                    & = 0              \\
+    \beta                      & = 0
+\end{align}
+
+\textit{Comment.} Observe that both operations enter into each of the five relations. (a) What is the multiplicative behavior of the additive unit? (b) What is the multiplicative behavior of the additive inverse of the multiplicative unit? (c) What is the multiplicative behavior of the additive inverses in general? (d) What is the additive behavior of the multiplicative unit? (e) What is the relation of multiplication to the additive unit?
+
+\section{Distributive failure}
+
+\begin{problem}
+Is there a set $\F$ with three commutative operations, $+$, $\times_1$ and $\times_2$ such that $(\F,+)$ is a group, both $(\F - \{0\}, \times_1)$ and $(\F - \{0\}, \times_2)$ are groups, but only one of $(\F,+, \times_1)$ and $(\F, +, \times_2)$ is a field?
+\end{problem}
+
+\textit{Working.} The answer is yes; this example is meant to illustrate the breakdown of the distributive property.
+
+Consider a small set, $\Z_4$ of the integers modulo 4, $\{0,1,2,3\}$. The first two operations can be defined as usual; the second operation can be defined by the following table
+
+\begin{center}
+    \begin{tabular}{l|cccc}
+        $\times_2$ & 0 & 1 & 2 & 3 \\
+        \hline
+        0          & 0 & 0 & 0 & 0 \\
+        1          & 0 & 1 & 2 & 3 \\
+        2          & 0 & 2 & 1 & 3 \\
+        3          & 0 & 3 & 3 & 1
+    \end{tabular}
+\end{center}
+
+In which the operations with any two numbers other than 0 and 1 is just the larger of the two numbers. In this case we observer that the distributive law does not hold
+
+\begin{align}
+    3 \times_2 (1 + 2)          & = 3 \times_2 3 = 1 \\
+    3 \times_2 1 + 3 \times_2 2 & = 3 + 3 = 2
+\end{align}
+
+There are many other ways to solve this same problem, but this contrived example suffices.
+
+\section{Finite fields}
+
+Could it happen that a field has only finitely many elements? Yes, it could; one very easy example is the set $\Z_2$ consisting of only the two integers 0 and 1 with addition and multiplication defined modulo 2. (Compare the non-field constructed in Problem 16.)
+
+The same sort of construction (add and multiply modulo something) yields the set $\Z_3 = \{0,1,2\}$ with addition and multiplication modulo 3. If, however, 4 is used instead of 2 or 3, something goes wrong: the set $\Z_4 = \{0,1,2,3\}$ with addition and multiplication modulo 4 is \textit{not} a field. What goes wrong is not that $2+2=0$ - there is nothing wrong with that - but that $2 \times 2 = 0$ - that's bad. The reason it's bad is that it stops 2 from having a multiplicative inverse; the set $\Z^*_4 (=\Z_4 -\{0\})$ is not an abelian group.
+
+Further experimentation along these lines reveals that $\Z_5$ is a field, but $\Z_6$ is not; $\Z_7$ is a field, but $\Z_8, \Z_9, \Z_10$ are not; $\Z_11$ is a field, but $\Z_12$ is not. (In $\Z_8$, $2\times4 =0$; in $\Z_9$, $3\times3 = 0$; etc.) General fact (not hard to prove): $\Z_n$ is a field if and only if the modulus $n$ is a prime.
+
+\textit{Working.} If $n$ is not a prime, then there exists $p$ and $q < n$ such that $n = pq$, which results in $pq = 0 \mod n$ and thus having no multiplicative inverse.
+
+The fact that $\Z_4$ is not a field shows that a certain way of defining addition and multiplication for four elements does not result in a field. Is it possible that different defnitions would lead to a different result?
+
+\begin{problem}
+Is there a field with four elements?
+\end{problem}
+

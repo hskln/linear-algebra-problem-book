@@ -1,0 +1,144 @@
+\section{Vector spaces}
+
+Real numbers can be added, and so can pairs of real numbers. If $\R^2$ is the set of all ordered pairs $(\alpha, \beta)$ of real numbers, then it is natural to define the sum of two elements of $\R^2$ by writing
+
+\begin{equation}
+    (\alpha,\beta) + (\gamma, \delta) = (\alpha+\gamma, \beta+\delta)
+\end{equation}
+
+and the result is that $\R^2$ becomes an abelian group. There is also a kind of partial multiplication that makes sense and is useful, namely the process of multiplying an element of $\R^2$ by a real number and thus getting another element of $\R^2$:
+
+\begin{equation}
+    \alpha(\beta, \gamma) = (\alpha\beta, \alpha\gamma)
+\end{equation}
+
+The end result of these comments is a structure consisting of three parts: an abelian group, namely $\R^2$, a field, namely $\R$, and a way of multiplying the elements of the group by the elements of the field.
+
+For another example of the kind of structure that linear algebra studies, consider the set $\P$ if all polynomials with real coefficients. The set $\P$, endowed with the usual notion of addition of polynomials, is an abelian group. Just as in the case of $\R^2$ there is a multiplication that makes useful sense, namely the process of multiplying a polynomial $p$ by a real number:
+
+\begin{equation}
+    (\alpha p)(x) = \alpha \cdot p(x)
+\end{equation}
+
+The result is, as before, a triple structure: an abelian group $\P$, a field $\R$, and a way of multiplying elements of $\P$ by elements of $\R$.
+
+The modification of replacing the set $\P$ of all real polynomials (\textbf{real polynomial} is a handy abbreviation for "polynomials with real coefficients")by the set $\P_3$ if all real polynomials of degree less than or equal to 3 is sometimes more natural to use than the unmodified version. The sum of two elements of $\P_3$ is again an element of $\P_3$ and so is the product of an element of $\P_3$ by a real number, and that's all there is to it.
+
+One more example, and that will be enough for now. This time let $\V$ be the set of all ordered triples $(\alpha,\beta, \gamma)$ of real numbers such that
+
+\begin{equation}
+    \alpha + \beta + \gamma = 0
+\end{equation}
+
+Define addition by
+
+\begin{equation}
+    (\alpha, \beta, \gamma) + (\alpha', \beta', \gamma') = (\alpha + \alpha', \beta + \beta', \gamma + \gamma')
+\end{equation},
+
+define multiplication by
+
+\begin{equation}
+    \alpha(\beta, \gamma, \delta) = (\alpha\beta, \alpha\gamma, \alpha\delta)
+\end{equation}
+
+and observer that the result is always an ordered triple with sum zero. The set of all such triples is, once again, an abelian group (namely $\V$), a field, and a sensible way of multiplying group elements by field elements.
+
+The general concept of a vector space is an abstraction of examples such as the ones just seen; it is a triple consisting of an abelian group, a field, and a multiplication between them. Recall, however, that it is immortal, illegal, and unprofitable to endow a set with two or more mathematical structures without tightly connecting them, s that each of them is restricted in an essential way. (The best known instance where that somewhat vague commandment is religiously obeyed is the definition of a field in Problem 16; there is an addition, there is a multiplication, and there is the essential connection betwene them, namely the distributive law.)
+
+A \textbf{vector space over a field} $\F$ (of elements called \textbf{scalars}) is an additive (commutative) group $\V$ (of elements called \textbf{vectors}), together with an peration that assigns to each scalar $\alpha$ and each vector $x$ a product $\alpha x$ that is again a vector. For such a definition to make good mathematical sense, the operation (called \textbf{scalar multiplication}) should be suitably related to the three given operations (addition in $\F$, addition in $\V$, and multiplication in $\F$). The conditions that present themselves most naturally are these.
+
+The vector distributive law:
+
+\begin{equation}
+    (\alpha + \beta) x = \alpha x + \beta x
+\end{equation}
+
+whenever $\alpha$ and $\beta$ are scalars and $x$ is a vector. (In other words, multiplication by a vector distributes over scalar addition.)
+
+The scalar distributive law
+
+\begin{equation}
+    \alpha(x+y) = \alpha x + \alpha y
+\end{equation}
+
+whenever $\alpha$ is a scalar and $x$ and $y$ are vectors. (In other words, multiplication by a scalar distributes over vector addition).
+
+The associative law
+
+\begin{equation}
+    (\alpha\beta)x = \alpha (\beta x)
+\end{equation}
+
+whenever $\alpha$ and $\beta$ are scalars and $x$ is a vector.
+
+The scalar identity law
+
+\begin{equation}
+    1x = x
+\end{equation}
+
+for every vector $x$. (In other words, the scalar 1 acts as the identity transformation on vectors.)
+
+(The reader has no doubt noticed that in scalar multiplication the scalar is always on the left and the vector on the right -- since the other kind of multiplication is not even defined, it makes no sense to speak of a commutative law. Nothing is lost by this convention, and something is gained: the very symbol for a product indicates which factor is the scalar and which the vector.)
+
+Many questions can and should be asked about the conditions that define vector spaces: one worrisome question has to do with multiplication, and another one, easier, has to do with zero.
+
+Why, it is natural to ask, is a multiplicative structure not imposed on vector spaces? Wouldn't it be natural and useful to define $(\alpha, \beta) \cdot (\gamma, \delta) = (\alpha\gamma, \beta\delta)$ (similarly to how addition is defined in $\R^2$)? The answer is no. The trouble is that even after the zero element (that is, the element (0,0)) of $\R^2$ is discarded, the remainder does not constitute a group; a pair that has one of its coordinates equal to 0, such, for instance, as (1,0), does not have an inverse. The same question for $\P$ is tempting: the element of $\P$ can be multiplied as well as added. Once again, however, the result does not convert $\P$ into a field; the multiplicative inverse of a polynomial is very unlikely to be a polynomial. Examples such as $\P_3$ add to the discouragement: the product of two elements of $\P_3$ might not be an element of $\P_3$ (the degree might be too large). The example of triples with sum zero is perhaps the most discouraging: the attempt to define the product of two elements of $\V$ collapses almost before it is begun. Even if both $\alpha + \beta + \gamma = 0$ and $\alpha' + \beta' + \gamma' = 0$, it is a rare coincidence that $\alpha\alpha' + \beta\beta' + \gamma\gamma' = 0$. It is best, at this stage, to resist the temptation to endow vector spaces with a multiplication.
+
+Both the scalar 0 and the vector 0 have to do with addition; how do they behave with respect to multiplication? It is possible that they misbehave, in a sense smething like the one for vector multiplication discussed in the preceeding paragraph, and it is possible that they are perfectly well behaved- which is true?
+
+\begin{problem}
+Do the \textbf{scalar zero law}
+
+\begin{equation}
+    0x = 0
+\end{equation}
+
+and the \textbf{vector zero law}
+
+\begin{equation}
+    \alpha0 = 0
+\end{equation}
+
+follow from the conditions in the definition of vector spaces, or could they be false?
+\end{problem}
+
+\textit{Solution.} The scalar zero is a consequence of the other conditons; here is how the simple proof goes. If $x$ is in $\V$, then
+
+\begin{align}
+    0x + 0x & = (0+0)x \text{ (by the vector distributive law)} \\
+            & = 0x
+\end{align}
+
+and therefore, simply by cancellation in the additive group $\V$, the forced conclusion is that $0x=0$.
+
+As for the vector zero law, the scalar distributive law implies that $\alpha 0$ is always zero. Indeed:
+
+\begin{equation}
+    \alpha 0 + \alpha 0 = \alpha(0+0) = \alpha 0
+\end{equation}
+
+and therefore, simply by cancellation in the additive group $\V$, the forced conclusion is that $\alpha 0 = 0$.
+
+It is good to know that these two results about 0 are in a sense best possible. That is: if $\alpha x = 0$, then either $\alpha = 0$, or $x = 0$. Reason: if $\alpha x = 0$, and $\alpha \neq 0$, then
+
+\begin{equation}
+    x = 1x = (\frac{1}{\alpha} \alpha)x = (\frac{1}{\alpha}) (\alpha x) \text{ (by the associative law)},
+\end{equation}
+
+which implies that
+
+\begin{equation}
+    x = (\frac{1}{\alpha}) 0 = 0
+\end{equation}
+
+\textit{Comment.} If a scalar multiplication satisfies all the conditions in the definition of a vector space, how likely is it that $\alpha x = x$? That happens when $x = 0$ and it happens when $\alpha = 1$; can it happen any other way? The answer is no; and, by now, the proof is easy; if $\alpha x = x$, then $(\alpha - 1)x = 0$, and therefore either $\alpha - 1 = 0$ or $x = 0$.
+
+A pertinent comment is that every field is a vector space over itself. Isn't that obvious? All it says is that given $\F$, and if the space $\V$ is defined to be $\F$ itself, with addition in $\V$ being what it was in $\F$, and scalar multiplication being ordinary multiplication in $\F$, then the conditions in the definition of a vector space are automatically satisfied. Consequence: if $\F$ is a field, then the equation $0x=0$ in $\F$ is an instance of the scalar zero law. In other words, the solution of Problem 17 is a special case of the present one.
+
+\section{Examples}
+
+It is always important, in studying a mathematical structure, to be able to recognize an example as a proper one, and to recognize a pretender as one that fails in some respect. Here are a half dozen candidates that may be vector spaces or may be pretenders.
+
+(1) Let $\F$ be $\C$, and let $\V$ also be the set $\C$ of complex numbers. Define addition in $\C$ the usual way, and let scalar multiplication (denoted by $\times$) be defined as follows:
