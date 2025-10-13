@@ -141,4 +141,65 @@ A pertinent comment is that every field is a vector space over itself. Isn't tha
 
 It is always important, in studying a mathematical structure, to be able to recognize an example as a proper one, and to recognize a pretender as one that fails in some respect. Here are a half dozen candidates that may be vector spaces or may be pretenders.
 
-(1) Let $\F$ be $\C$, and let $\V$ also be the set $\C$ of complex numbers. Define addition in $\C$ the usual way, and let scalar multiplication (denoted by $\times$) be defined as follows:
+\begin{enumerate}
+    \item Let $\F$ be $\C$, and let $\V$ also be the set $\C$ of complex numbers. Define addition in $\C$ the usual way, and let scalar multiplication (denoted by $\times$) be defined as follows:
+
+          \begin{equation}
+              \alpha \ast x = \alpha^2 \cdot x
+          \end{equation}
+
+    \item Let $\F$ be a field, let $\V$ be $\F^2$ (the set of all ordered pairs of elements of $\F$), let addition in $\V$ be the usual one (coordinatewise), and define a new scalar multiplication by writing
+
+          \begin{equation}
+              \alpha \ast (\beta, \gamma) = (\alpha\beta, 0)
+          \end{equation}
+
+          (for all $\alpha,\beta,\gamma$)
+
+    \item Let $\F$ be the field of four elements discussed in Problem 19, let $\V$ be $\F^2$ with the usual addition, and define scalar multiplication by
+
+          \begin{equation}
+              \alpha \ast (\beta, \gamma) = (\alpha\beta, \alpha\gamma) \text{ if } \gamma \neq 0
+          \end{equation}
+
+          and
+
+          \begin{equation}
+              \alpha \ast (\beta,\gamma) = (\alpha^2 \beta, 0)
+          \end{equation}
+
+    \item Let $\F$ be $\R$ and let $\V$ be the set $\R_+$ of all positive real numbers. Define the "sum" denoted by $\alpha \boxedplus \beta$ of any two positive real numbers $\alpha$ and $\beta$, and define the "scalar product" denoted by $\alpha \boxeddot \beta$ of any positive real number $\alpha$ by an arbitrary (not necessarily positive) real number $\beta$ as follows:
+
+          \begin{equation}
+              \alpha \boxedplus \beta = \alpha\beta
+          \end{equation}
+
+          and
+
+          \begin{equation}
+              \alpha \boxeddot \beta = \beta^\alpha
+          \end{equation}
+
+    \item Let $\F$ be $\C$, and let $\V$ be $\C$ also. Vector addition is to be defined in the ordinary addition of complex numbers, but the product of a scalar $\alpha$ (in $\C$) and a vector $x$ (in $\C$) is to be defined by forming the real part of $\alpha$ first. That is:
+
+          \begin{equation}
+              \alpha \cdot x = (\operatorname{\Re} \alpha)x
+          \end{equation}
+
+    \item Let $\F$ be the field $\Q$ of rational numbers, let $\V$ be the fields $\R$ of real numbers and define scalar multiplication by writing
+
+          \begin{equation}
+              \alpha \ast x = \alpha x
+          \end{equation}
+
+          for all $\alpha$ in $\Q$ and all $x$ in $\R$.
+\end{enumerate}
+
+\begin{problem}
+Which of the defining properties of vector spaces are missing in the examples 1, 2, 3, 4, 5 and 6?
+\end{problem}
+
+\textit{Solution. }
+
+
+

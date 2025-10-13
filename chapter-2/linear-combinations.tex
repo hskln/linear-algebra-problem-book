@@ -1,0 +1,37 @@
+\section{Linear combinations}
+
+The best known example of a vector space is the space $\R^2$ of all ordered pairs of real numbers, such as
+
+\[
+    \begin{cases}
+        (1,1)                   \\
+        (0, \pi^2)              \\
+        (\frac{1}{2}, \sqrt{2}) \\
+        (0, -200)               \\
+        (\frac{1}{\sqrt{5}}, -\sqrt{5})
+    \end{cases} \tag{$\ast$}
+\]
+
+An example of a vector space, different from $\R^2$ but very near to it in spirit, consists not of all ordered pairs of real numbers, but only some of them. That is, throw away most of the paris in $\R^2$, typical among the ones to be kept are:
+
+\[
+    \begin{cases}
+        (0,0)                  \\
+        (-\frac{1}{2},1)       \\
+        (\sqrt{5}, -2\sqrt{5}) \\
+        (\frac{1}{\sqrt{2}}, -\sqrt{2})
+    \end{cases} \tag{$\ast\ast$}
+\]
+
+Are these four pairs in $\R^2$ enough to indicate a pattern? - is it clear which pairs are to be thrown away and which are to be kept? The answer is: keep only the pairs in which the second entry is $-2$ times the first. Right? Indeed: $0 = (-2) \cdot 0$, and $1 = (-2) (- \frac{1}{2})$, and so on. Use $\R^2_0$ as a temporary symbol to denote this new vector space.
+
+Spaces such as $\R^2$ and $\R^2_0$ are familiar from analytic geometry; $\R^2$ is the Euclidean plane equipped with a Cartesian coordinate system, and $\R^2_0$ is a line in that plane, the line with the equation $2x + y = 0$. It is often good to use geometric language in linear algebra; it is comfortable and it suggest the right way to look at things.
+
+A vector was defined as an element of a vector space - any vector space. Caution: the word "vector" is therefore a relative word - it changes its meaning depending on which vector space is under study. (It's like the word "citizen", which changes its meaning depending on which nation is being talked about.) Vectors in the particular vector spaces $\R^2$ and $\R^2_0$ happen to be ordered pairs of real numbers, and the two real numbers that make up a vector are called its \textbf{coordinates}. Each of the five pairs in the list $(\ast)$ is a vector in $\R^2$ (but none of them belongs to $\R^2_0$), and each of the four pairs in the list $(\ast\ast)$ is a vector in $\R^2_0$.
+
+The most important aspect of vectors is not what they look like but hwat one can do with them, namely add them, and multiply them by scalars. More generally, if $x = (\alpha_1, \alpha_2)$ and $y = (\beta_1, \beta_2)$ are vectors (either both in $\R^2$ or else both in $\R^2_0$) and if $\xi$ and $\eta$ are real numbers, then it is possible to form
+
+\begin{equation}
+    \xi x + \eta y = (\xi \alpha_1 + \eta \beta_1, \xi \alpha_2 + \eta \beta_2)
+\end{equation}
+
