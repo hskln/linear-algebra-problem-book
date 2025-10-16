@@ -201,5 +201,56 @@ Which of the defining properties of vector spaces are missing in the examples 1,
 
 \textit{Solution. }
 
+(1) The scalar distributive law fails; indeed
 
+\begin{equation}
+    2 \ast 1 = 2^2 \cdot 1 = 4,
+\end{equation}
 
+but
+
+\begin{equation}
+    1 \ast 1 + 1 \ast 1 = 1 \ast 1 + 1 \ast 1 = 2.
+\end{equation}
+
+The verifications that all the other axioms of a vector space are satisfied are painless routine.
+
+(2) The scalar identity law fails; all the other conditions are satisfied.
+
+(3) Since the mapping $\alpha \mapsto \alpha^2$ is multiplicative ($(\alpha\beta)^2 = \alpha^2 \beta^2$), the associative law for the new scalar product is true (this should be checked, and it is fun to check). The new scalar identity law follows from the fact that $1^2 = 1$. The verification of the new scalar distributive law depends on the fact that if $\alpha$ and $\beta$ are scalars ( in the present sense, a very special case), then
+
+\begin{equation}
+    (\alpha + \beta)^2 =  \alpha^2 + \beta^2,
+\end{equation}
+
+(That identity holds, in fact, if and only if the field has "characteristic 2", which means that $\alpha + \alpha = 0$ for every $\alpha$ in $\F$. An equivalent way of expressing that condition is just to say that $2 = 0$, where "$2$" means $1+1$, of course.) The scalar distributive law, however, is false. Indeed:
+
+\begin{equation}
+    1((1,0) + (0,1)) = 1(1,1) = (1,1),
+\end{equation}
+
+whereas
+
+\begin{equation}
+    1(1,0) + 1(0,1) = (1+1,0) + (0,1) = (1+1,1).
+\end{equation}
+
+(4) Nothing is missing; the definition of $\boxedplus$ and $\boxed{\cdot}$ do indeed make $\R$, into a real vector space.
+
+(5) In this example the associative law fails. Indeed, if $\alpha = \beta = i$, then
+
+\begin{equation}
+    (\alpha\beta)\cdot 1 = (-1)1 = -1,
+\end{equation}
+
+whereas
+
+\begin{equation}
+    \alpha \cdot (\beta \cdot 1) = 0 \cdot (0) = 0.
+\end{equation}
+
+The verifications of the distributive laws (vector or scalar), and of the scalar identity law, are completely straightforward; all that they depend on (in addition to the elementary properites of the addition of complex numbers) is that \textit{Re} does the right thing with 0, 1, and $+$. (The right thing is $\textit{Re}0 = 0$, $\textit{Re}1=1$, and $\textit{Re}(\alpha+\beta) = \textit{Re} \alpha + \textit{Re}\beta$).
+
+(6) Here, once more, nothing is missing. The result is a special case of the general observation that if $\F$ is a field and $\mathbf{G}$ is a subfield, then $\F$ is a vector space over $\mathbf{G}$.
+
+\textit{Question.} What is the status of the zero laws (scalar and vector) in these examples? The proof that they held (Problem 20) depended on the truth of the other conditions; does the failure of some of those conditons make the zero laws fail also?
