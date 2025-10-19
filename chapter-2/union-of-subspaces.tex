@@ -1,0 +1,19 @@
+\section{Union of subspaces}
+
+What set theoretic operations on subspaces produce further examples of subspaces? One that surely does not is set-theoretic complementation: the vectors that do not belong to a specified subspace never form a subspace. To become convince of that, think of a picture, in the plan for instance, the complement of a line is not a line. To give a brisk proof, just think of 0: the complement of a subspace never contains it.
+
+\begin{problem}
+\begin{enumerate}[(a)]
+    \item Under what conditions is the set-theoretic intersection of two subspaces a subspace? What about the intersection of more than two subspaces (perhaps even infinitely more) - when is that a subspace?
+    \item Under what conditions is the set-theoretic union of two subspaces a subspace? What about the union of more than two subspaces?
+\end{enumerate}
+\end{problem}
+
+\textit{Solution.}
+
+\begin{enumerate}[(a)]
+    \item The interseciton of any collection of subspaces is always a subspace. The proof is just a matter of language: it is contained in the meaning of the word "intersection". Suppose, indeed, that the subspaces forming a collection are distinguished by the use of an index $\gamma$; the problem is to prove that if each $\M_\gamma$ is a subspace, then the same is true of $\M = \cap_\gamma \M_\gamma$. Since every $\M_\gamma$ contains 0, so does $\M$, and therefore $\M$ is not empty. If $x$ and $y$ belongs to $\M$ (that is to every $\M_\gamma$), then $\alpha x + \beta y$ belongs to every $\M_\gamma$ (no matter what $\alpha$ and $\beta$ are), and therefore $\alpha x + \beta y$ belongs to $\M$. Conclusion: $\M$ is a subspace.
+    \item If one of the two given subspaces is the entire vector space $\V$, then their union is $\V$; the question is worth considering for proper subspaces only. If $\M_1$ and $\M_2$ are proper subspaces, can $\M_1 \cup \M_2$ be equal to $\V$? No, never. If one of the subspaces includes the other, then their union is equal to the larger one, which is not equal to $\V$. If neither includes the other, the reasoning is slightly more subtle; here is how it goes.
+
+          Consider a vector $x$ in $\M_1$ that is not in $\M_2$, and consider a vector $y$ that is not in $\M_1$ (it doesn't matter if it is in $\M_2$ or not). The set of all scalar multiples of $x$, that is the set of all vectors of the form $\alpha x$, is a line through the origin. (The geometric language doesn't have to be used, but if helps.) Translate that line by the vector $y$, that is, form the ste of all vectors of the form $\alpha x + y$; the result is a parallel line (not through the origin). Being parallel, the translated line has no vectors in common with $\M_1$.
+\end{enumerate}

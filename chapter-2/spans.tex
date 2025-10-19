@@ -1,0 +1,91 @@
+\section{Spans}
+
+Do linear combinations of more than two vectors make sense? Sure. If, for instance, $x$, $y$ and $z$ are three vectors in $\R^3$, or, for that matter, in $\R^2$ or in $\R^2_0$ (see Problem 22), and if $\alpha, \beta$, and $\gamma$ are scalars, then the vector
+
+\begin{equation}
+    \alpha x + \beta y + \gamma z
+\end{equation}
+
+is a linear combination of the set $\{x,y,z\}$. Linear combinations of sets of four vectors, such as $\{x_1, x_2, x_3, x_4\}$ are defined similarly as vectors of the form
+
+\begin{equation}
+    \alpha_1 x_1 + \alpha_2 x_2 + \alpha_3 x_3 + \alpha_4 x_4
+\end{equation}
+
+(where $\alpha_1, \alpha_2, \alpha_3, \alpha_4$ are scalars, of coruse), and the same set of definition is used for linear combination of any finite set of vectors. Since
+
+\begin{equation}
+    \alpha x + \beta y + \gamma z = 1 \cdot (\alpha x + \beta y) + \gamma z
+\end{equation}
+
+it is clear that a linear combination of three vectors can be obtained in two steps by forming linear combinations of two vectors: the first step yields $\alpha x + \beta y$ and the second step forms a linar combination of that and $z$. The same thing is true in complete generality: every finite linear combinations can be obtained in a finite number of steps by forming linear combinations of two vectors at a time.
+
+A vector space of interest is the set $\P_5$ of all real polynomials $p$ in one variable $x$, of degree less than or equal to 5 (an obvious relative of the space $\P_3$ considered in Problem 20). Examples of such polynomials are
+
+\begin{align}
+    p(x) & = x + x^5,                      \\
+    p(x) = -x + x^3,                       \\
+    p(x) = 7 + x + (\sqrt{2} + e^\pi) x^5, \\
+    p(x) = 7,                              \\
+    p(x) = 0,                              \\
+    p(x) = x^4,                            \\
+\end{align}
+
+and it is clear that to get more, richer, examples of vectors in $\P_5$ "long" linear combinations of examples such as these need to be formed.
+
+Objects that naturally arise in this connection are the large sets of vectors that can be obtained from small sets by forming all possible linear combinations. Problem 22, for instance, asked which vectors in $\R^2$ are linear combinations of $(1,1)$ and $(1,2)$, and the answer turned out to be that every vector in $\R^2$ is such a linear combination. A similar question is this: which vectors in in $\R^3$ are linear combinations of $(1,1,0)$ and $(1,2,0)$? The solution of Problem 22 makes the answer to this question obvious: the answer is all vectors of the form $(x,y,0)$. The technical word for "set of all linear combinations" is \textbf{span}. So, for example, the span of the vectors $(1,1,0)$ and $(1,2,0)$ is the set of all vectors of the form $(\xi, \eta, 0)$, or, to say the same thing in different words, the set $\{(1,1,0), (1,2,0)\}$ \textbf{spans} the set of all vectors of the form $(\xi, \eta, 0)$.
+
+In geometrical language $\R^2$ is a 3-dimensional Euclidean space. In that space the set of all those vectors $(\xi, \eta, \zeta)$ for whhich $\eta = \zeta = 0$, or, in other words, the set of all $(\xi, 0, 0)$ is called the $\xi$-axis, and, similarly, the $\eta$-axis is the set of all $(0,\eta, 0)$, and the $\zeta$-axis is the set of all $(0,0,\zeta)$. These coordinate axes are lines. The coordinate planes are the $(\xi, \eta)$-plane, which is the set of all $(\xi, \eta, \zeta)$ with $\zeta = 0$, or, in other words, the set of all $(\xi, \eta, 0)$, and, similarly, the $(\eta, \zeta)$-plane, which is the set of all $(0, \eta, \zeta)$, and the $(\xi, \zeta)$-plane, which is the set of all $(\xi, 0, \zeta)$. In this language, the $\xi$-axis and the $\zeta$-axis span the $(\xi, \zeta)$-plane, and the set $\{(1,1,0), (1,2,0)\}$ spans the $(\xi, \eta)$-plane.
+
+What is the span of the set $\{(1,1,1),(0,0,0)\}$? Answer: it is the set of all vectors of the form $(\xi, \xi, \xi)$, or, geometrically, it is the line through the origin that makes an angle of $45^o$ with each of the three coordinate axes.
+
+How about this: does the vector $(1,4,9)$ in $\R^3$ belong to the span of $\{(1,1,1), (0,1,1), (0,0,1)\}$? The answer is probably not obvious, but it is not difficult to get. If $(1,4,9)$ did belong to the span of
+
+\begin{equation}
+    \{(1,1,1), (0,1,1), (0,0,1)\}
+\end{equation}
+
+then scalars $\alpha, \beta$ and $\gamma$ could be found so that
+
+\begin{equation}
+    \alpha(1,1,1) + \beta(0,1,1) + \gamma(0,0,1) = (1,4,9),
+\end{equation}
+
+and then it would follow that
+
+\begin{align}
+    \alpha                  & = 1, \\
+    \alpha + \beta          & = 4, \\
+    \alpha + \beta + \gamma & = 9, \\
+\end{align}
+
+This in turn implies that
+
+\begin{align}
+    \alpha & = 1,                                  \\
+    \beta  & = 4 - \alpha = 4 - 1 = 3,             \\
+    \gamma & = 9 - \alpha - \beta = 9 - 1 - 3 = 5.
+\end{align}
+
+Check: $1 \cdot (1,1,1) + 3 \cdot (0,1,1) + 5 \cdot (0,0,1) = (1,4,9)$.
+
+Among the simplest of the polynomials (vectors) in the vector space $\P_5$ are $1, x^2$, and $x^4$. What is their span? Answer: it is the set of all polynomials of the form
+
+\begin{equation}
+    \alpha + \beta x^2 + \gamma x^4.
+\end{equation}
+
+These polynomials happen to have a pleasant property that characterizes them: the replacement of $x$ by $-x$ does not change them. Polynomials with this property are called \textbf{even}. Symbolically said: a polynomial $p$ is even if it satisfies the identity $p(-x) = p(x)$. A polynomial $p$ is called \textbf{odd} if it satisfies the identity $p(-x) = -p(x)$. What do the odd polynomials in $\P_5$ look like?
+
+\begin{problem}
+\begin{enumerate}[(a)]
+    \item Can two disjoint subsets of $\R^2$, each containing two vectors, have the same span?
+    \item What is the span in $\R^3$ of
+
+          \begin{equation}
+              \{(1,1,1),(0,1,1),(0,0,1)\}?
+          \end{equation}
+\end{enumerate}
+\end{problem}
+
+\textit{Solution.}

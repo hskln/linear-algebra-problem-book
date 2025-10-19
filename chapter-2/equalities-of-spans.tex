@@ -1,0 +1,52 @@
+\section{Equalities of spans}
+
+Span is a set-theoretic operation that converts sets (of vectors) into other sets (subspaces). (In other words, "span" applies to sets of vectors, not to vectors themselves, and an expression such as "the span of the vectors $x$ and $y$" is not really a proper one.) What can be said about the relation between a set of vectors and its span? There are three easy statements on the most abstract (and therefore most shallow) level, namely that
+
+\begin{enumerate}
+    \item every set is a subset of its span,
+    \item if a $\E$ is a subset of a set $\F$, then the span of $\E$ is a subset of the span of $\F$,
+
+          and
+
+    \item the span of the span of a set is the same as the span of the set.
+\end{enumerate}
+
+It is often convenient to have a symbol to denote "span", and one possible symbol is $\bigvee$ (which is intended to be reminiscent of the ordinary set-theoretic symbol for union). In terms of that symbol the statements just made can be expressed as follows:
+
+\[
+    \E \subset \bigvee \E, \tag{(1)}
+\]
+
+\[
+    \text{ if } \E \subset \F, \text{ then } \bigvee \E \subset \F, \tag{(2)}
+\]
+
+\[
+    \bigvee \bigvee \E = \bigvee \E. \tag{(3)}
+\]
+
+In technical language (which is not especially useful here) (1) says that the span operation is increasing, (2) says that it is monotone, and (3) says that it is idempotent.
+
+Knowledge about the span of a set of vectors provides geometric insight about the set, and, for instance, the knowledge that two sets have the same span (compare Problem 25 (a)) provides geometric insight about the relation between them. Here is an example of the kind of operation about some spans that might arise: if we know about three vectors $x, y,$ and $z$ that $x \in \bigvee (y,z)$, are we allowed to infer that $\bigvee\{x,z\} = \bigvee \{y,z\}$? The answer is no. If, for instance, $x$ is a scalar multiple of $z$ but $y$ is not, then $x$ obviously belongs to $\bigvee \{x,z\}$, but $y$ does not.
+
+A related equestion is this: if $\M$ is a subspace and $x$ and $y$ are vectors such that
+
+\begin{equation}
+    x \in \bigvee \{ \M, y\},
+\end{equation}
+
+does it follow that
+
+\begin{equation}
+    \bigvee \{\M, x\} = \bigvee \{\M, y\}?
+\end{equation}
+
+(Here $\{\M, x\}$ is an abbreviation for $\M \cup \{x\}.$) The answer is trivially no; it could, for instance, happen that $\M$ is the subspace spanned by $x$, in which case the assumption is obviously true, but the questioned conclusion can be true only if $y$ belongs to that subspace, which it may fail to do so. Is that the only thing that can go wrong?
+
+\begin{problem}
+If $x$ and $y$ are vectors and $\M$ is a subspace such that $x \notin \M$ but $x \in \bigvee \{\M,y\}$, does it follow that
+
+\begin{equation}
+    \bigvee \{\M,x\} = \bigvee \{\M, y\}?
+\end{equation}
+\end{problem}
